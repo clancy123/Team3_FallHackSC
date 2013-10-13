@@ -39,6 +39,8 @@
 		BC76EA11180A2904000FD4AC /* shrimp.jpg-large in Resources */ = {isa = PBXBuildFile; fileRef = BC76EA08180A2904000FD4AC /* shrimp.jpg-large */; };
 		BC76EA12180A2904000FD4AC /* tacodile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC76EA09180A2904000FD4AC /* tacodile.jpg */; };
 		BC76EA13180A2904000FD4AC /* toast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC76EA0A180A2904000FD4AC /* toast.jpg */; };
+		BCE8B3A1180B4EA00020D215 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE8B3A0180B4EA00020D215 /* menu-icon.png */; };
+		BCE8B3A3180B504A0020D215 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE8B3A2180B504A0020D215 /* menu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		BC76EA08180A2904000FD4AC /* shrimp.jpg-large */ = {isa = PBXFileReference; lastKnownFileType = file; path = "shrimp.jpg-large"; sourceTree = "<group>"; };
 		BC76EA09180A2904000FD4AC /* tacodile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tacodile.jpg; sourceTree = "<group>"; };
 		BC76EA0A180A2904000FD4AC /* toast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toast.jpg; sourceTree = "<group>"; };
+		BCE8B3A0180B4EA00020D215 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		BCE8B3A2180B504A0020D215 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,10 +224,12 @@
 				BC76EA04180A2904000FD4AC /* Cheespider.jpg */,
 				BC76EA05180A2904000FD4AC /* fruit.jpg */,
 				BC76EA06180A2904000FD4AC /* Hippo.png */,
+				BCE8B3A2180B504A0020D215 /* menu.png */,
 				BC76EA07180A2904000FD4AC /* Piethon.jpg */,
 				BC76EA08180A2904000FD4AC /* shrimp.jpg-large */,
 				BC76EA09180A2904000FD4AC /* tacodile.jpg */,
 				BC76EA0A180A2904000FD4AC /* toast.jpg */,
+				BCE8B3A0180B4EA00020D215 /* menu-icon.png */,
 			);
 			path = Images;
 			sourceTree = SOURCE_ROOT;
@@ -307,11 +313,13 @@
 				BC76EA0D180A2904000FD4AC /* Cheespider.jpg in Resources */,
 				BC76EA10180A2904000FD4AC /* Piethon.jpg in Resources */,
 				BC76EA12180A2904000FD4AC /* tacodile.jpg in Resources */,
+				BCE8B3A3180B504A0020D215 /* menu.png in Resources */,
 				BC76EA0B180A2904000FD4AC /* buffaloaf.png in Resources */,
 				BC76EA0E180A2904000FD4AC /* fruit.jpg in Resources */,
 				BC76E9C11809B1F1000FD4AC /* InfoPlist.strings in Resources */,
 				BC76EA11180A2904000FD4AC /* shrimp.jpg-large in Resources */,
 				BC76E9CC1809B1F1000FD4AC /* Images.xcassets in Resources */,
+				BCE8B3A1180B4EA00020D215 /* menu-icon.png in Resources */,
 				BC76EA0C180A2904000FD4AC /* cake.jpg in Resources */,
 				BC76EA13180A2904000FD4AC /* toast.jpg in Resources */,
 				BC76EA0F180A2904000FD4AC /* Hippo.png in Resources */,
@@ -463,6 +471,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nom/Nom-Prefix.pch";
 				INFOPLIST_FILE = "Nom/Nom-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -476,6 +485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nom/Nom-Prefix.pch";
 				INFOPLIST_FILE = "Nom/Nom-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

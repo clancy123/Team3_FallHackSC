@@ -15,6 +15,7 @@
 #define CORNER_RADIUS 4
 #define SLIDE_TIMING .25
 #define PANEL_WIDTH 60
+#define NUM_DAYS 7
 
 @interface MainViewController () <CenterViewControllerDelegate>
 @property (nonatomic, strong) CenterViewController *centerVC;
@@ -24,6 +25,8 @@
 @end
 
 @implementation MainViewController
+
+char* daysWeek[7] = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,16 +43,20 @@
     [self setupView];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(setSelectedHall)
+                                           selector:@selector(setSelectedHallAll)
                                                name:@"Reload"
                                             object:nil];
   
+
 	// Do any additional setup after loading the view.
 }
    
--(void)setSelectedHall {
-  currentPage.selectedHall = self.leftVC.selected;
-  nextPage.selectedHall = self.leftVC.selected;
+-(void)setSelectedHallAll {
+  for (int i = 0; i < NUM_DAYS; i++) {
+    [[allPages objectAtIndex:i] setSelectedHall:self.leftVC.selected];
+    // (allPages[i]).selectedHall = self.leftVC.selected;
+  }
+  //nextPage.selectedHall = self.leftVC.selected;
   [[NSNotificationCenter defaultCenter] postNotificationName:@"centerVCReload"
                                                       object:self];
   
@@ -64,44 +71,53 @@
 
 - (void)setupView
 {
+  allPages = [[NSMutableArray alloc] init];
   scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height)];
   //scrollView.backgroundColor = [UIColor purpleColor];
+  
+  NSDateFormatter* theDateFormatter = [[NSDateFormatter alloc] init];
+  [theDateFormatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+  [theDateFormatter setDateFormat:@"EEEE"];
+  NSString *weekDay =  [theDateFormatter stringFromDate:[NSDate date]];
+  NSLog(@"Today is %@", weekDay);
+  
+  
+  today = [[CenterViewController alloc] init];
+  today.dayLabel.text = @"Today";//weekDay;
+  today.view.tag = CENTER_TAG;
+  today.delegate = self;
+  [self applyNewIndex:0 pageController:today];
+  [allPages addObject:today];
+  [scrollView addSubview:today.view];
+
+  
+  for (int i = 1; i < NUM_DAYS; i++) {
+    CenterViewController *day = [[CenterViewController alloc] init];
+    NSDate *newDate = [NSDate dateWithTimeInterval:86400*i sinceDate:[NSDate date]];
+    NSString *dayString = [theDateFormatter stringFromDate:newDate];
+    day.dayLabel.text = dayString;
+    
+    day.view.tag = CENTER_TAG;
+    day.delegate = self;
+    [allPages addObject:day];
+    [self applyNewIndex:i pageController:day];
+    [scrollView addSubview:day.view];
+  }
+  
   scrollView.showsHorizontalScrollIndicator = YES;
-  currentPage = [[CenterViewController alloc] init];
-  nextPage = [[CenterViewController alloc] init];
-  currentPage.view.tag = CENTER_TAG;
-  nextPage.view.tag = CENTER_TAG;
-  currentPage.delegate = self;
-  nextPage.delegate = self;
   
-  [scrollView addSubview:currentPage.view];
-  [scrollView addSubview:nextPage.view];
-  
-  NSInteger widthCount = 2;
+  NSInteger widthCount = NUM_DAYS;
   scrollView.contentSize =
   CGSizeMake(
              scrollView.frame.size.width * widthCount,
              scrollView.frame.size.height);
 	scrollView.contentOffset = CGPointMake(0, 0);
   
-	pageControl.numberOfPages = 2;
+	pageControl.numberOfPages = NUM_DAYS;
 	pageControl.currentPage = 0;
 	
-	[self applyNewIndex:0 pageController:currentPage];
-	[self applyNewIndex:1 pageController:nextPage];
-  
-  // [self.view addSubview:currentPage.view];
   [self.view addSubview:scrollView];
   
-  /*
-  
-  self.centerVC = [[CenterViewController alloc] init];
-  self.centerVC.view.tag = CENTER_TAG;
-  self.centerVC.delegate = self;
-  
-  [self.view addSubview:self.centerVC.view];
-  [self addChildViewController:_centerVC];
-   */
 }
 
 - (void)showCenterViewWithShadow:(BOOL)value withOffset:(double)offset
@@ -222,7 +238,7 @@
 
 - (void)applyNewIndex:(NSInteger)newIndex pageController:(CenterViewController *)centerVC
 {
-	NSInteger pageCount = 3;// [[DataSource sharedDataSource] numDataPages];
+	NSInteger pageCount = NUM_DAYS;// [[DataSource sharedDataSource] numDataPages];
 	BOOL outOfBounds = newIndex >= pageCount || newIndex < 0;
   
 	if (!outOfBounds)
@@ -309,6 +325,17 @@
 }
 
 - (IBAction)changePage:(id)sender
+{
+	NSInteger pageIndex = pageControl.currentPage;
+  
+	// update the scroll view to the appropriate page
+  CGRect frame = scrollView.frame;
+  frame.origin.x = frame.size.width * pageIndex;
+  frame.origin.y = 0;
+  [scrollView scrollRectToVisible:frame animated:YES];
+}
+
+- (void)changePage
 {
 	NSInteger pageIndex = pageControl.currentPage;
   

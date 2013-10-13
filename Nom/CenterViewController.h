@@ -27,16 +27,24 @@
 
 @end
 
-@interface CenterViewController : UIViewController <LeftViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface CenterViewController : UIViewController <LeftViewControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
+  NSURLConnection * connect;
+  NSMutableData * Udata;
+  int _hallS;
+}
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 @property (weak, nonatomic) UIButton *leftButton;
 @property (strong, nonatomic) diningHall *selectedHall;
 @property NSInteger pageIndex;
+@property (nonatomic, strong) UILabel *dayLabel;
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mealS;
+@property (strong, nonatomic) UINavigationBar *navBar;
 
 - (void)updateTextViews:(BOOL)force;
-
+-(void)setHall:(diningHall *)hall;
 //-(void)setFoodArrayFromHall;
 -(void)btnMovePanelRight;
 // left button

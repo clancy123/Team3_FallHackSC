@@ -13,8 +13,11 @@
   UIScrollView *scrollView;
   UIPageControl *pageControl;
   CenterViewController *currentPage;
+  CenterViewController *today;
   CenterViewController *nextPage;
+  NSMutableArray *allPages;
   
 }
 -(void)changePage;
+
 @end

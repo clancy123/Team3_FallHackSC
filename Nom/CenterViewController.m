@@ -39,18 +39,35 @@
   foodArray = [[NSMutableArray alloc] init];
   self = [super init];
    self.view.backgroundColor = [UIColor whiteColor];
-  self.leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  
+  
+  self.navBar = [[UINavigationBar alloc] init];
+  [self.navBar setTintColor:[UIColor redColor]];
+  [self.view addSubview:self.navBar];
+  
+  self.leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  
+  UIImage *buttonImage = [UIImage imageNamed:@"menu.png"];
+  [self.leftButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+  
   [self.leftButton addTarget:self
                  action:@selector(btnMovePanelRight)
        forControlEvents:UIControlEventTouchDown];
-  [self.leftButton setTitle:@"Dining Halls" forState:UIControlStateNormal];
-  self.leftButton.titleLabel.textColor = [UIColor redColor];
-  self.leftButton.frame = CGRectMake(20, 15, 100, 100);
+
+  self.leftButton.frame = CGRectMake(20, 28, 26, 26);
   [self.view addSubview:self.leftButton];
   
   self.foodTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 100, self.view.frame.size.width - 20, [foodArray count] * 50) style:UITableViewStylePlain]; // UITableViewStyleGrouped
+  
   // self.foodTableView.backgroundColor = [UIColor blueColor];
   [self.view addSubview:self.foodTableView];
+  
+  self.dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
+  self.dayLabel.textAlignment = NSTextAlignmentCenter;
+  self.dayLabel.text = @"Day Label";
+  self.dayLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:24];
+
+  [self.view addSubview:self.dayLabel];
   
   self.foodTableView.dataSource = self;
   self.foodTableView.delegate = self;
@@ -65,6 +82,7 @@
                                                name:@"centerVCReload"
                                              object:nil];
   [self.foodTableView reloadData];
+  
 	// Do any additional setup after loading the view.
 }
 
@@ -171,7 +189,7 @@
   
   // UIImageView *mainImage = [[UIImageView alloc] init]; // (UIImageView *)[self.cellMain viewWithTag:1];
   
-  UILabel *imageName = [[UILabel alloc] init]; //(UILabel *)[self.cellMain viewWithTag:2];
+  // UILabel *imageName = [[UILabel alloc] init]; //(UILabel *)[self.cellMain viewWithTag:2];
   
   if ([foodArray count] > 0)
   {
@@ -273,6 +291,10 @@
 		textViewNeedsUpdate = NO;
 	}
    */
+}
+
+-(void)setHall:(diningHall *)hall {
+  self.selectedHall = hall;
 }
 
 @end
