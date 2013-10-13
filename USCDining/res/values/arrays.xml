@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="planets_array">
+        <item>"Overview"</item>
+        <item>"EVK"</item>
+        <item>"Cafe 84"</item>
+        <item>"Parkside"</item>
+        <item>"Watching"</item>
+    </array>
+    <array name="headers">
+        <item>"Made to Order"</item>
+        <item>"Entree"</item>
+        <item>"Pizza"</item>
+        <item>"Grill"</item>
+        <item>"Everything Else"</item>
+    </array>
+</resources>
