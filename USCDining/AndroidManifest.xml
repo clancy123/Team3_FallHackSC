@@ -32,6 +32,14 @@
             android:name=".Favorites"
             android:label="@string/favorites" >
         </activity>
+        <activity
+            android:name=".About"
+            android:label="About" >
+        </activity>
+        <activity
+            android:name=".AboutHelper"
+            android:label="Open Source Licenses" >
+        </activity>
     </application>
 
 </manifest>

@@ -140,18 +140,21 @@ public class MainActivity extends FragmentActivity {
         for (int i = 0; i < 7; i++) {
         	parkside[i] = new DiningData();
             parkside[i].dining_hall = "Parkside";
-            parkside[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
-            parkside[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            parkside[i].breakfast = new String[] { "Made to Order:", "Omelette Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            parkside[i].dinner = new String[] { "Made to Order:", "Po Boy Sandwich Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
             evk[i] = new DiningData();
             evk[i].dining_hall = "EVK";
-            evk[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
-            evk[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            evk[i].breakfast = new String[] { "Made to Order:", "Omelette Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            evk[i].dinner = new String[] { "Made to Order:", "Po Boy Sandwich Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
             cafe84[i] = new DiningData();
             cafe84[i].dining_hall = "Cafe 84";
-            cafe84[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
-            cafe84[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            cafe84[i].breakfast = new String[] { "Made to Order:", "Omelette Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            cafe84[i].dinner = new String[] { "Made to Order:", "Po Boy Sandwich Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
             
         }
+        
+        parkside[1].breakfast = new String[] {"Made to Order:", "Omelet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Sausage and Cheddar Frittata", "Country Diced Potatoes", "Pork Sausage Patty", "Veggie Patties", "Smoothie of the Day"};
+        parkside[1].dinner = new String[] { "Made to Order:", "Fajita Bowl Bar", "Entree:", "Chile Rubbed Beef", "Tortilla Crusted Chipotle Lime Tilapia", "Rice Stuffed Peppers with Chipotle Remoulade", "Mexican Millet", "Steamed Spinach", "SautŽed Squash Blend", "Pizza:", "Meatlover's Pizza", "Peppers & Mushroom Pizza", "Customize To Make:", "Pasta/Grain/BeanBar", "Customize Salad Bar to Make:", "Salad Bar", "Customize Sandwiches to Make:", "Deli Bar", "Market Salads:", "Fruit Salad", "Black Bean & Corn Salad", "Gluten Awareness Station:", "Snapper Veracruz", "Jicama, Mango & Cucumber Salad with Chile", "Deli Bar", "Soup:", "Chicken Tortilla", "Garden Vegetable Homemade", "Smoothie:", "Smoothie of the Day", "Grill:", "Hot Dog", "Guacamole Chicken Sandwich", "Boca Burger", "Potato Chips"};
         
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
@@ -164,9 +167,28 @@ public class MainActivity extends FragmentActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        setTitle("Parkside"); //TODO
+        
         if (savedInstanceState == null) {
             selectItem(3);
         }
+        
+        //TODO actual notifications
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(ns);
+
+        int icon = R.drawable.ic_stat_nom;
+        CharSequence tickerText = "Food item available"; // ticker-text
+        long when = System.currentTimeMillis();
+        Context context = this.getApplicationContext();
+        CharSequence contentTitle = "Fajitas at Parkside"; //TODO lunch!
+        CharSequence contentText = "Tomorrow for Lunch and Dinner.";
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+        Notification notification = new Notification(icon, tickerText, when);
+        notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
+        int HELLO_ID = 1;
+        mNotificationManager.notify(HELLO_ID, notification);
     }
 
     @Override
@@ -224,6 +246,10 @@ public class MainActivity extends FragmentActivity {
         public int getCount() {
             return 7; // One page for each weekday.
         }
+        
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
+       }
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -295,13 +321,13 @@ public class MainActivity extends FragmentActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
         mViewPager.setCurrentItem(0);
 
-        if (position != nav_selected) {
+        //if (position != nav_selected) {
             nav_selected = position;
             //Toast.makeText(MainActivity.this, "Drawer " + position, Toast.LENGTH_SHORT).show();
 
-            //TODO HALP mViewPager.invalidate();
-            //mSectionsPagerAdapter.notifyDataSetChanged();
-        }
+            mViewPager.invalidate();
+            mSectionsPagerAdapter.notifyDataSetChanged();
+        //}
     }
 
     /**
@@ -323,9 +349,9 @@ public class MainActivity extends FragmentActivity {
                 TextView view = (TextView) super.getView(position, convertView, parent);
                 view.setTextColor(Color.DKGRAY);
                 if (getItem(position).type == Item.SECTION) {
-                	if (getItem(position).text.equals("Made to Order:") || getItem(position).text.equals("Entree:") || getItem(position).text.equals("Pizza:") || getItem(position).text.equals("Grill:") || getItem(position).text.equals("Other:")) {
+                	if (getItem(position).text.equals("Breakfast") || getItem(position).text.equals("Lunch & Dinner")) {
                 		view.setBackgroundColor(parent.getResources().getColor(COLORS[3]));
-                	}
+                	} 
                 	else view.setBackgroundColor(parent.getResources().getColor(COLORS[position % (COLORS.length - 1)]));
                 }
                 return view;
@@ -374,6 +400,7 @@ public class MainActivity extends FragmentActivity {
 
         private static ArrayList<Item> prepareItems(String[] breakfast, String[] dinner) {
             ArrayList<Item> result = new ArrayList<Item>();
+            result.add(new Item(Item.SECTION, "Breakfast"));
             for (int i = 0; i < breakfast.length; i++) {
             	if (breakfast[i].equals("Made to Order:") || breakfast[i].equals("Entree:") || breakfast[i].equals("Pizza:") || breakfast[i].equals("Grill:") || breakfast[i].equals("Other:") ) {
             		result.add(new Item(Item.SECTION, breakfast[i]));
@@ -502,6 +529,10 @@ public class MainActivity extends FragmentActivity {
                     Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
                 }
                 return true; */
+        	case R.id.action_about:
+        		Intent intent = new Intent(MainActivity.this, About.class);
+        		startActivity(intent);
+        		return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

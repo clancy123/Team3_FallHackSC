@@ -11,7 +11,21 @@
     <string name="title_section5">Wednesday</string>
     <string name="title_section6">Thursday</string>
     <string name="title_section7">Friday</string>
+    <string name="about_text">DineOn, FightOn!</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-
+	<string name="notice">Notices for software:\n</string>
+    <string name="pinned_listview">&#160;&#160;&#160;● Pinned Section ListView</string>
+    <string name="pinned_listview_lic">   				  
+	    This application uses the Crouton library
+	    Copyright 2013 Sergej Shafarenka, halfbit.de
+		Licensed under the Apache License, Version 2.0 (the "License");
+		you may not use this file except in compliance with the License.
+		You may obtain a copy of the License at\n\n
+		&#160;&#160;&#160;&#160;&#160;http://www.apache.org/licenses/LICENSE-2.0\n\n
+		Unless required by applicable law or agreed to in writing,
+		software distributed under the License is distributed on an "AS IS" BASIS,
+		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+		See the License for the specific language governing permissions and limitations under the License\n
+	</string>
 </resources>
