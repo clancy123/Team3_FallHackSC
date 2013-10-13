@@ -80,7 +80,11 @@ public class MainActivity extends FragmentActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mDiningCategories;
-    private int nav_selected = 0;
+    private int nav_selected = 3;
+    
+    private DiningData[] parkside;
+    private DiningData[] evk;
+    private DiningData[] cafe84;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +133,26 @@ public class MainActivity extends FragmentActivity {
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-
+        parkside = new DiningData[7];
+        evk = new DiningData[7];
+        cafe84 = new DiningData[7];
+        //TODO start actual data
+        for (int i = 0; i < 7; i++) {
+        	parkside[i] = new DiningData();
+            parkside[i].dining_hall = "Parkside";
+            parkside[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            parkside[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            evk[i] = new DiningData();
+            evk[i].dining_hall = "EVK";
+            evk[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            evk[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            cafe84[i] = new DiningData();
+            cafe84[i].dining_hall = "Cafe 84";
+            cafe84[i].breakfast = new String[] { ("Day " + i), "Made to Order:", "Omlet Bar", "Entree:", "Scrambled Eggs", "Hard Boiled Eggs", "French Toast", "Waffle Bar", "Yogurt Parfait Bar", "Oatmeal", "Hash Browns", "Veggie Patties", "Smoothie of the Day", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            cafe84[i].dinner = new String[] { ("Day " + i), "Made to Order:", "Po Boy Sandwitch Bar", "Entree:", "Rosemary Pork Chop", "Blackened Catfish", "Glazed Tempeh", "Dirty Rice", "Roasted Carrots", "Garlic Okra", "Pizza:", "Pepperoni Pizza", "Roasted Vegetable Pizza", "Grill:", "Cheeseburger", "Chicken Apple Sausage", "Steak Fries", "Other:", "Salad Bar", "Pasta Bar", "Smoothie of the Day", "Beef and Tomato Soup", "Garden Vegetable Soup", "Deli Bar", "Chicken Ratatouille", "German Potato Salad" };
+            
+        }
+        
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -142,7 +165,7 @@ public class MainActivity extends FragmentActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(3);
         }
     }
 
@@ -174,10 +197,26 @@ public class MainActivity extends FragmentActivity {
             Fragment fragment = new FoodListFragment();
             Bundle args = new Bundle();
             args.putString(FoodListFragment.ARG_SECTION_NUMBER, (mDiningCategories[1 + nav_selected])); //TODO overview case
-            String[] titles = new String[] { "Orange Chicken","Cheese Pizza", "Grilled Cheese", "Salad Bar", "Salad Bar", "Salad Bar", "Salad Bar", "Salad Bar" };
-            args.putStringArray("frag_titles", titles);
+            switch(nav_selected) {
+            	case 0: //overview. swap below for now to check changing
+            		args.putStringArray(FoodListFragment.ARG_FOOD_BREAKFAST, evk[position].dinner);
+                    args.putStringArray(FoodListFragment.ARG_FOOD_DINNER, evk[position].breakfast);
+            	case 1: 
+            		args.putStringArray(FoodListFragment.ARG_FOOD_BREAKFAST, evk[position].breakfast);
+                    args.putStringArray(FoodListFragment.ARG_FOOD_DINNER, evk[position].dinner);
+                    break;
+            	case 2: 
+            		args.putStringArray(FoodListFragment.ARG_FOOD_BREAKFAST, cafe84[position].breakfast);
+                    args.putStringArray(FoodListFragment.ARG_FOOD_DINNER, cafe84[position].dinner);
+                    break;
+            	case 3: 
+            		args.putStringArray(FoodListFragment.ARG_FOOD_BREAKFAST, parkside[position].breakfast);
+                    args.putStringArray(FoodListFragment.ARG_FOOD_DINNER, parkside[position].dinner);
+                    break;
+            }
+
             fragment.setArguments(args);
-            Toast.makeText(MainActivity.this, "Frag Created " + position, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "Frag Created " + position, Toast.LENGTH_SHORT).show();
             return fragment;
         }
 
@@ -224,7 +263,6 @@ public class MainActivity extends FragmentActivity {
     }
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
-
         /*/ Create a new fragment and specify the planet to show based on position
         Fragment fragment = new FoodListFragment();
         Bundle args = new Bundle();
@@ -239,7 +277,16 @@ public class MainActivity extends FragmentActivity {
 
         fragmentManager.executePendingTransactions();
         */
-
+    	
+    	if (position == 4) {
+    		Intent intent = new Intent(MainActivity.this, Favorites.class);
+    		intent.putExtra(Favorites.EXTRA_SHOW_FRAGMENT, Favorites.CombinedPreferenceFragment.class.getName() );
+            intent.putExtra(Favorites.EXTRA_NO_HEADERS, true );
+            //TODO tablets / headers...
+    		startActivity(intent);
+    		return;
+    	}
+    	
         // Highlight the selected item, update the title, and close the drawer
         mDrawerList.setItemChecked(position, true);
         //setTitle(mPlanetTitles[position]);
@@ -258,29 +305,10 @@ public class MainActivity extends FragmentActivity {
     }
 
     /**
-     * A dummy fragment representing a section of the app, but that simply
-     * displays dummy text.
+     * A fragment representing a food list
      */
     public static class FoodListFragment extends ListFragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        public static final String ARG_SECTION_NUMBER = "section_number";
-        //public static String[] titles;
-
-        public static final String[] descriptions = new String[] {
-                "","Vegetarian", "Vegetarian", "Vegetarian" , "Vegan", "Vegetarian", "Vegetarian", "Vegetarian"};
-
-        public static final Integer[] images = {
-                R.drawable.orange_chicken, R.drawable.pizza, R.drawable.grilled_cheese, R.drawable.salad, R.drawable.salad, R.drawable.salad, R.drawable.salad, R.drawable.salad };
-
-        ListView listView;
-        List<RowItem> rowItems;
-        String dining_hall = " is available";
-        //static int frag_containerID;
-
-        //*(&#$&()@#&$(SDJFLSDKJFLSDJKFLSDJFKLS:DF
+        
         private static class MyPinnedSectionListAdapter extends ArrayAdapter<Item> implements PinnedSectionListAdapter {
 
             private static final int[] COLORS = new int[] {
@@ -295,7 +323,10 @@ public class MainActivity extends FragmentActivity {
                 TextView view = (TextView) super.getView(position, convertView, parent);
                 view.setTextColor(Color.DKGRAY);
                 if (getItem(position).type == Item.SECTION) {
-                    view.setBackgroundColor(parent.getResources().getColor(COLORS[position % COLORS.length]));
+                	if (getItem(position).text.equals("Made to Order:") || getItem(position).text.equals("Entree:") || getItem(position).text.equals("Pizza:") || getItem(position).text.equals("Grill:") || getItem(position).text.equals("Other:")) {
+                		view.setBackgroundColor(parent.getResources().getColor(COLORS[3]));
+                	}
+                	else view.setBackgroundColor(parent.getResources().getColor(COLORS[position % (COLORS.length - 1)]));
                 }
                 return view;
             }
@@ -330,33 +361,38 @@ public class MainActivity extends FragmentActivity {
             }
         }
 
+        public static final String ARG_FOOD_BREAKFAST = "breakfast_menu";
+        public static final String ARG_FOOD_DINNER = "dinner_menu";
+        public static final String ARG_SECTION_NUMBER = "dining_hall";
+        
+        ListView listView;
+        List<RowItem> rowItems;
+        String dining_hall = "";
+        
         public FoodListFragment() {
         }
 
-        private static ArrayList<Item> prepareItems() {
+        private static ArrayList<Item> prepareItems(String[] breakfast, String[] dinner) {
             ArrayList<Item> result = new ArrayList<Item>();
-		/*for (int i = 0; i < 30; i++) {
-			result.add(new Item(Item.SECTION, "Section " + i));
-			for (int j=0; j<4; j++) {
-				result.add(new Item(Item.ITEM, "Item " + j));
+            for (int i = 0; i < breakfast.length; i++) {
+            	if (breakfast[i].equals("Made to Order:") || breakfast[i].equals("Entree:") || breakfast[i].equals("Pizza:") || breakfast[i].equals("Grill:") || breakfast[i].equals("Other:") ) {
+            		result.add(new Item(Item.SECTION, breakfast[i]));
+            		continue;
+            	}
+            	else {
+            		result.add(new Item(Item.ITEM, breakfast[i]));
+            	}
 			}
-		} */
-            result.add(new Item(Item.SECTION, "Made to Order"));
-            result.add(new Item(Item.ITEM, "Grilled Cheese"));
-            result.add(new Item(Item.SECTION, "Entree"));
-            result.add(new Item(Item.ITEM, "Chicken"));
-            result.add(new Item(Item.ITEM, "Rice"));
-            result.add(new Item(Item.ITEM, "Veggies"));
-            result.add(new Item(Item.SECTION, "Salad Bar"));
-            result.add(new Item(Item.ITEM, "Salad as usual..."));
-            result.add(new Item(Item.SECTION, "Other"));
-            result.add(new Item(Item.ITEM, "Pasta Bar"));
-            result.add(new Item(Item.ITEM, "Smoothie of the day"));
-            result.add(new Item(Item.ITEM, "More food"));
-            result.add(new Item(Item.ITEM, "More food"));
-            result.add(new Item(Item.ITEM, "More food"));
-            result.add(new Item(Item.ITEM, "More food"));
-            result.add(new Item(Item.ITEM, "More food"));
+            result.add(new Item(Item.SECTION, "Lunch & Dinner"));
+            for (int i = 0; i < dinner.length; i++) {
+            	if (dinner[i].equals("Made to Order:") || dinner[i].equals("Entree:") || dinner[i].equals("Pizza:") || dinner[i].equals("Grill:") || dinner[i].equals("Other:") ) {
+            		result.add(new Item(Item.SECTION, dinner[i]));
+            		continue;
+            	}
+            	else {
+            		result.add(new Item(Item.ITEM, dinner[i]));
+            	}
+			}
 
             return result;
         }
@@ -365,32 +401,24 @@ public class MainActivity extends FragmentActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
 
+        	Bundle bundle = this.getArguments();
+        	if (bundle == null) {
+                Toast.makeText(getActivity(), "HELP NULL", Toast.LENGTH_LONG).show();
+        	}
+            dining_hall = bundle.getString(ARG_SECTION_NUMBER, "");
+            final String[] breakfast_food = bundle.getStringArray(ARG_FOOD_BREAKFAST);
+            final String[] dinner_food = bundle.getStringArray(ARG_FOOD_DINNER);
+        	
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            MyPinnedSectionListAdapter adapter = new MyPinnedSectionListAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prepareItems());
+            MyPinnedSectionListAdapter adapter = new MyPinnedSectionListAdapter(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, prepareItems(breakfast_food, dinner_food));
             setListAdapter(adapter);
-
-            //Bundle bundle = this.getArguments();
-
-            //final String[] titles;
-            //if (bundle != null) {
-                /*dining_hall = bundle.getString(ARG_SECTION_NUMBER, "");
-                final String[] titles = bundle.getStringArray("frag_titles");
-           // }
 
             //frag_containerID = ((ViewGroup)getView().getParent()).getId();
 
-            View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
-            rowItems = new ArrayList<RowItem>();
-            for (int i = 0; i < titles.length; i++) {
-                RowItem item = new RowItem(images[i], titles[i], descriptions[i]);
-                rowItems.add(item);
-            }
-
-            listView = (ListView) rootView.findViewById(R.id.list);
-            CustomListViewAdapter adapter = new CustomListViewAdapter(getActivity(),
-                    R.layout.list_item, rowItems);
-            listView.setAdapter(adapter);
-            listView.setOnItemClickListener( new OnItemClickListener() {
+            //View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
+            
+            // listView = (ListView) rootView.findViewById(android.R.id.list);
+            /*listView.setOnItemClickListener( new OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View arg1, int position,
                                         long arg3) {
@@ -401,11 +429,11 @@ public class MainActivity extends FragmentActivity {
                     NotificationManager mNotificationManager = (NotificationManager) getActivity().getSystemService(ns);
 
                     int icon = R.drawable.ic_stat_nom;
-                    CharSequence tickerText = ""; // ticker-text
+                    CharSequence tickerText = "Food item available"; // ticker-text
                     long when = System.currentTimeMillis();
                     Context context = getActivity().getApplicationContext();
-                    CharSequence contentTitle = titles[position] + " is at " + dining_hall;
-                    CharSequence contentText = "A food you're watching (" + titles[position] + ") is being served at " + dining_hall;
+                    CharSequence contentTitle = breakfast_food[position%breakfast_food.length] + " is at " + dining_hall; //TODO lunch!
+                    CharSequence contentText = "A food you're watching (" + breakfast_food[position%breakfast_food.length] + ") is being served at " + dining_hall;
                     Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
                     PendingIntent contentIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent, 0);
                     Notification notification = new Notification(icon, tickerText, when);
@@ -438,9 +466,9 @@ public class MainActivity extends FragmentActivity {
                     NotificationManager mNotificationManager =
                             (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
 // mId allows you to update the notification later on.
-                    *///TODO mNotificationManager.notify(mId, mBuilder.build());
-        //        }
-         //   });
+                    ///TODO mNotificationManager.notify(mId, mBuilder.build());
+                }
+            }); */
 
             return rootView;
         }

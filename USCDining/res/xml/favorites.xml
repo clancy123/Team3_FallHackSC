@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <Preference
+            android:title="Choose Food Items to be Notified For:" />
+    <PreferenceCategory
+            android:title="Made to Order">
+        <CheckBoxPreference
+                android:key="po_boy_sandwitch_bar"
+                android:title="Po Boy Sandwitch"
+                android:defaultValue="false" />
+        <CheckBoxPreference
+                android:key="mediterranean_bar"
+                android:title="Mediterranean Bar"
+                android:defaultValue="false" />
+        <CheckBoxPreference
+                android:key="ravioli_bar"
+                android:title="Ravioli Bar"
+                android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Entrees" >
+        <CheckBoxPreference
+                android:key="roasted_leg_of_lamb"
+                android:title="Roasted Leg of Lamb"
+                android:summary="with Sherry Sauce"
+                android:defaultValue="false" />
+        <CheckBoxPreference
+                android:key="moroccan_spiced_chicken"
+                android:title="Moroccan Spiced Chicken"
+                android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Pizza" >
+        <CheckBoxPreference
+                android:key="greek_pizza"
+                android:title="Greek Pizza"
+                android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
