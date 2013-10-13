@@ -11,6 +11,10 @@
 
 @implementation diningHall
 
+char* HALLS[3] = {"EVK","ParkSide","Cafe84"};
+char* MEALS[3] = {"Breakfast%20Lunch","Breakfast%20Lunch","Dinner"};
+
+
 + (id)itemWithTitle:(NSString *)title withImage:(UIImage *)image
 {
   return [[self alloc] initWithTitle:(NSString *)title withImage:(UIImage *)image];
@@ -20,12 +24,27 @@
 {
   if ((self = [super init]))
   {
-    _title = title;
-    _image = image;
+    self.diningHallName = title;
+    self.image = image;
     meals = [[NSMutableArray alloc] init];
     //[self setUpMeals];
   }
   
+  return self;
+}
+
+
+- (id)initWithDiningHall:(DiningOption)hall{
+  self = [super init];
+  if (self) {
+    if (hall==EVK)
+      self.diningHallName = @"EVK";
+    else if (hall ==Parkside)
+      self.diningHallName = @"Parkside";
+    else if (hall == Cafe84)
+      self.diningHallName = @"Cafe 84";
+    self.menuPath = [NSURL URLWithString:[self.class getPathForHall:hall onMeal:Dinner]];
+  }
   return self;
 }
 
@@ -59,6 +78,29 @@
 
 -(NSMutableArray *)getMeals {
   return meals;
+}
+
+-(void)loadData{
+  downData = [[NSMutableData alloc] init];
+  [downData setData:NULL];
+  connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:self.menuPath] delegate:self];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
+  [downData appendData:data];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+  
+}
+
++(NSString*)getPathForHall:(DiningOption) hall onMeal:(mealType)type{
+  NSCalendar * weeker = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  NSDateComponents * cmp = [weeker components: NSWeekOfYearCalendarUnit fromDate:[NSDate date]];
+  return [diningHall getPathForHall:hall onMeal:type forWeek:(cmp.weekOfYear-2)];
+  //the minus two fixes error... Might need to change week start offset for weeker...
+}
+
++(NSString*)getPathForHall:(DiningOption) hall onMeal:(mealType)type forWeek:(int)week{
+  return [NSString stringWithFormat:@"http://hospitality.usc.edu/ResidentialDining/Menu/%s%%20%s%%20Week%%20%i.pdf",HALLS[hall],MEALS[type],week];
 }
 
 @end

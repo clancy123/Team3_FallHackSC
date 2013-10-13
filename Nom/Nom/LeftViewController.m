@@ -113,14 +113,14 @@ static NSNotificationCenter *SYNotificationCenter;
   
   UILabel *imageTitle = [[UILabel alloc] init]; //(UILabel *)[self.cellMain viewWithTag:2];
   
-  NSString *textL = [[arrayOfDiningHalls objectAtIndex:indexPath.row] title];
+  NSString *textL = [[arrayOfDiningHalls objectAtIndex:indexPath.row] diningHallName];
   self.cellMain.label.text = textL;
   if ([arrayOfDiningHalls count] > 0)
   {
     diningHall *currentRecord = [arrayOfDiningHalls objectAtIndex:indexPath.row];
     
     mainImage.image = currentRecord.image;
-    imageTitle.text = [NSString stringWithFormat:@"%@", currentRecord.title];
+    imageTitle.text = [NSString stringWithFormat:@"%@", currentRecord.diningHallName];
     NSLog(@"Image title: %@", imageTitle.text);
   }
   NSLog(@"Here is %@, and %@", textL, self.cellMain.label.text);

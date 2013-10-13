@@ -48,7 +48,7 @@
   self.leftButton.frame = CGRectMake(20, 15, 100, 100);
   [self.view addSubview:self.leftButton];
   
-  self.foodTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 100, self.view.frame.size.width - 20, [foodArray count] * 50) style:UITableViewStyleGrouped];
+  self.foodTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 100, self.view.frame.size.width - 20, [foodArray count] * 50) style:UITableViewStylePlain]; // UITableViewStyleGrouped
   // self.foodTableView.backgroundColor = [UIColor blueColor];
   [self.view addSubview:self.foodTableView];
   
@@ -112,7 +112,7 @@
 - (void)showHallSelected:(diningHall *)selected
 {
   mainImageView.image = selected.image;
-  imageTitle.text = [NSString stringWithFormat:@"%@", selected.title];
+  imageTitle.text = [NSString stringWithFormat:@"%@", selected.diningHallName];
 }
 
 - (void)btnMovePanelRight {
