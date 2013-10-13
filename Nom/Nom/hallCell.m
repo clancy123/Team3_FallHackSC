@@ -29,11 +29,12 @@
 
 - (id)init {
   self = [super init];
-  self.backgroundColor = [UIColor redColor];
-  self.label = [[UILabel alloc] initWithFrame:CGRectMake(16, 6, 200, 50)];
+  self.backgroundColor = [UIColor colorWithRed:.85 green:.7 blue:.1 alpha:.75];
+  self.label = [[UILabel alloc] initWithFrame:CGRectMake(16, 4, 200, 50)];
   self.label.text = @"LOCATION";
+  self.label.font =  [UIFont fontWithName:@"Helvetica Neue" size:20];
 
-  self.label.textColor = [UIColor blackColor];
+  self.label.textColor = [UIColor colorWithRed:1 green:.1 blue:.1 alpha:1];
   [self.contentView addSubview:self.label];
   return self;
 }

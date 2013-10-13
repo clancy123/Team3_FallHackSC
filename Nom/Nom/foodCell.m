@@ -30,9 +30,10 @@
 - (id)init {
   self = [super init];
   self.backgroundColor = [UIColor redColor];
-  self.label = [[UILabel alloc] initWithFrame:CGRectMake(54, 6, 200, 50)];
+  self.label = [[UILabel alloc] initWithFrame:CGRectMake(54, 4, 200, 50)];
   self.label.text = @"food";
   self.label.textColor = [UIColor blackColor];
+  self.label.font =  [UIFont fontWithName:@"Helvetica Neue" size:20];
   [self.contentView addSubview:self.label];
  
   self.pic = [UIImage imageNamed:@"cake.jpg"];
