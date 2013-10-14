@@ -66,12 +66,38 @@
   self.dayLabel.textAlignment = NSTextAlignmentCenter;
   self.dayLabel.text = @"Day Label";
   self.dayLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:24];
+  UIButton *newButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 20, 200, 50)];
+  [newButton addTarget:self
+                      action:@selector(fightOn)
+            forControlEvents:UIControlEventTouchDown];
+  [self.view addSubview:newButton];
 
   [self.view addSubview:self.dayLabel];
   
   self.foodTableView.dataSource = self;
   self.foodTableView.delegate = self;
   return self;
+}
+
+-(void)fightOn{
+  UIImage *pic = [UIImage imageNamed:@"fighton.jpg"];
+  self.view1 = [[UIImageView alloc] initWithImage:pic];
+  self.imageB = [UIButton buttonWithType:UIButtonTypeCustom];
+  //[self.imageB setBackgroundImage:pic forState:UIControlStateNormal];
+  self.view1.frame =  CGRectMake(80,200,200,200);
+  self.imageB.frame = CGRectMake(80,200,200,200);
+  [self.view addSubview:self.view1];
+  [self.view addSubview:self.imageB];
+  
+  [self.imageB addTarget:self
+                action:@selector(remove)
+      forControlEvents:UIControlEventTouchDown];
+  
+}
+
+-(void)remove {
+  [self.imageB removeFromSuperview];
+  [self.view1 removeFromSuperview];
 }
 
 - (void)viewDidLoad

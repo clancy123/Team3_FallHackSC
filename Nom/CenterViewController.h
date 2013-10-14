@@ -35,6 +35,8 @@
 
 @property (nonatomic, assign) id<CenterViewControllerDelegate> delegate;
 @property (weak, nonatomic) UIButton *leftButton;
+@property (weak, nonatomic) UIButton *imageB ;
+@property (strong, nonatomic)   UIImageView *view1 ;
 @property (strong, nonatomic) diningHall *selectedHall;
 @property NSInteger pageIndex;
 @property (nonatomic, strong) UILabel *dayLabel;

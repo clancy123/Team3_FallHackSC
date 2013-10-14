@@ -41,6 +41,7 @@
 		BC76EA13180A2904000FD4AC /* toast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC76EA0A180A2904000FD4AC /* toast.jpg */; };
 		BCE8B3A1180B4EA00020D215 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE8B3A0180B4EA00020D215 /* menu-icon.png */; };
 		BCE8B3A3180B504A0020D215 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BCE8B3A2180B504A0020D215 /* menu.png */; };
+		BCE8B3A5180B68080020D215 /* fighton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCE8B3A4180B68080020D215 /* fighton.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		BC76EA0A180A2904000FD4AC /* toast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toast.jpg; sourceTree = "<group>"; };
 		BCE8B3A0180B4EA00020D215 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		BCE8B3A2180B504A0020D215 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		BCE8B3A4180B68080020D215 /* fighton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fighton.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 		BC76EA01180A2904000FD4AC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BCE8B3A4180B68080020D215 /* fighton.jpg */,
 				BC76EA02180A2904000FD4AC /* buffaloaf.png */,
 				BC76EA03180A2904000FD4AC /* cake.jpg */,
 				BC76EA04180A2904000FD4AC /* Cheespider.jpg */,
@@ -316,6 +319,7 @@
 				BC76EA0D180A2904000FD4AC /* Cheespider.jpg in Resources */,
 				BC76EA10180A2904000FD4AC /* Piethon.jpg in Resources */,
 				BC76EA12180A2904000FD4AC /* tacodile.jpg in Resources */,
+				BCE8B3A5180B68080020D215 /* fighton.jpg in Resources */,
 				BCE8B3A3180B504A0020D215 /* menu.png in Resources */,
 				BC76EA0B180A2904000FD4AC /* buffaloaf.png in Resources */,
 				BC76EA0E180A2904000FD4AC /* fruit.jpg in Resources */,
