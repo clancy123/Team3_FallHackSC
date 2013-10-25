@@ -1,3 +1,3 @@
-Team3_FallHackSC (Team OmNomNom)
-================================
-iOS and Android awesomeness.
+HackSC 2013
+===========
+Finishing Team OmNomNom's Android App
